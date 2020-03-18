@@ -1,12 +1,12 @@
-﻿using System;
-using MoneyManager.BL.Classes;
+﻿using MoneyManager.BL.Classes;
 using MoneyManager.BL.Interface;
 using MoneyManager.Control.Interface;
+using System;
 using WeatherInKyiv;
 
 namespace MoneyManager
 {
-    class MainPresenter:EventArgs
+    internal class MainPresenter : EventArgs
     {
         private readonly IMainWindow _view;
         private readonly IDBManager _manager;
@@ -14,7 +14,6 @@ namespace MoneyManager
         private readonly IAddContentPresenter _addContent;
 
         public MainPresenter(IMainWindow view, IDBManager manager, IDBHistory history, AddContent addContent) {
-
             _view = view;
             _manager = manager;
             _history = history;
@@ -28,6 +27,7 @@ namespace MoneyManager
         }
 
         #region MainForm
+
         private void CurrentMoney(object sender, EventArgs e) {
             AmountManage am = new AmountManage();
             _view.LCurrentMoney(am.CurrentMoney(_manager.GetDBHistories()));
@@ -49,12 +49,15 @@ namespace MoneyManager
             ControlWeather cw = new ControlWeather();
             _view.LWeather = cw.GetWeather();
         }
-        #endregion
+
+        #endregion MainForm
+
         #region AddContentForm
 
         private void WiewContent(object sender, EventArgs e) {
             _addContent.DataGridDBHistory.ItemsSource = _manager.GetDBHistories();
         }
-        #endregion
+
+        #endregion AddContentForm
     }
 }

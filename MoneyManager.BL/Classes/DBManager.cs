@@ -9,12 +9,8 @@ namespace MoneyManager.BL
 {
     public class DBManager : IDBManager
     {
-      
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA2100:Review SQL queries for security vulnerabilities", Justification = "<Ожидание>")]
-
         public void SetDBHistories(IDBHistory history) {
-
             using(IDbConnection con = new SqlConnection(Settings.Default.DBMoneyManage))
             {
                 IDbCommand command = new SqlCommand($"INSERT INTO MyDBMoneyManager(Username, SumMoney) VALUES('{history.UserName}', '{history.Money}');");
@@ -22,7 +18,7 @@ namespace MoneyManager.BL
                 command.Connection = con;
                 con.Open();
                 IDataReader reader = command.ExecuteReader();
-            }          
+            }
         }
 
         public List<DBHistory> GetDBHistories() {
@@ -34,7 +30,7 @@ namespace MoneyManager.BL
                 con.Open();
 
                 IDataReader reader = command.ExecuteReader();
-               List<DBHistory> HistoryDB = new List<DBHistory>();
+                List<DBHistory> HistoryDB = new List<DBHistory>();
 
                 DBHistory history = new DBHistory();
 
@@ -47,7 +43,6 @@ namespace MoneyManager.BL
 
                     HistoryDB.Add(history);
                 }
-
 
                 return HistoryDB;
             }

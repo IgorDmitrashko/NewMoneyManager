@@ -15,7 +15,7 @@ namespace WeatherInKyiv
                 HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
 
                 string response;
-                using (var stream = new StreamReader(httpWebResponse.GetResponseStream()))
+                using(var stream = new StreamReader(httpWebResponse.GetResponseStream()))
                 {
                     response = stream.ReadToEnd();
                 }
@@ -24,8 +24,8 @@ namespace WeatherInKyiv
                 jsonweatherResponce.Main.Temp = (int)(jsonweatherResponce.Main.Temp - 273.15);
                 return $"{jsonweatherResponce.Name}\n     {jsonweatherResponce.Main.Temp} C°";
             }
-            
-            catch (Exception)
+
+            catch(Exception)
             {
                 return "Ошибка";
             }

@@ -1,5 +1,4 @@
-﻿using MoneyManager.BL;
-using MoneyManager.BL.Classes;
+﻿using MoneyManager.BL.Classes;
 using MoneyManager.BL.Interface;
 using MoneyManager.Control.Interface;
 using System;
@@ -14,6 +13,7 @@ namespace MoneyManager
     public partial class AddContent : Window, IAddContentPresenter
     {
         private ModelContent _modelContent;
+        DBHistory history;
 
         public DataGrid DataGridDBHistory { get; set; }
         public IDBHistory History { get; }
@@ -28,7 +28,6 @@ namespace MoneyManager
         }
 
         private void ButtonAddContent_Click(object sender, RoutedEventArgs e) {
-
             SetDataBaseContent?.Invoke(GetContent(tBUserName, tBMoney), EventArgs.Empty);
             buttonAddContent.IsEnabled = false;
         }
@@ -43,21 +42,19 @@ namespace MoneyManager
         }
 
         private void tBUserName_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e) {
-
             buttonAddContent.IsEnabled = true;
-
         }
 
         private void tBMoney_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e) {
-
-
             buttonAddContent.IsEnabled = true;
         }
 
         private IDBHistory GetContent(TextBox name, TextBox money) {
             decimal sum;
-            DBHistory history = new DBHistory();
+            history = new DBHistory();
+
             history.UserName = name.Text;
+
             bool result = decimal.TryParse(money.Text, out sum);
             if(!result)
             {
@@ -72,8 +69,8 @@ namespace MoneyManager
             }
         }
 
-
         public event EventHandler WievDataGridDBHistory;
+
         public event EventHandler SetDataBaseContent;
     }
 }

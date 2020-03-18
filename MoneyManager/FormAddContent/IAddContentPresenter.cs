@@ -1,9 +1,5 @@
 ﻿using MoneyManager.BL.Interface;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace MoneyManager.Control.Interface
@@ -14,6 +10,7 @@ namespace MoneyManager.Control.Interface
         IDBHistory History { get; }
 
         event EventHandler WievDataGridDBHistory;
+
         event EventHandler SetDataBaseContent;
     }
 }

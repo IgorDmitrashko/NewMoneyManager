@@ -6,14 +6,12 @@ using System.Windows;
 
 namespace MoneyManager
 {
-
     public partial class MainWindow : Window, IMainWindow
     {
+        private MainPresenter mainPresenter;
+        private AddContent addContent2;
 
-        MainPresenter mainPresenter;
-        AddContent addContent2;
         public MainWindow() {
-
             InitializeComponent();
             addContent2 = new AddContent(dgDataBase);
 
@@ -23,22 +21,27 @@ namespace MoneyManager
             lcurentMoney.Loaded += Window_Loaded;
 
             mainPresenter = new MainPresenter(this, new DBManager(), new DBHistory(), addContent2);
-
         }
 
-
         #region I record the visual component
-        public void DgDbHistiry(List<DBHistory> value) { dgDataBase.ItemsSource = value; }
+
+        public void DgDbHistiry(List<DBHistory> value) {
+            dgDataBase.ItemsSource = value;
+        }
 
         public object LWeather { get { return labelWeatherTemperature.Content; } set { labelWeatherTemperature.Content = value; } }
-        public void LCurrentMoney(string value) { lcurentMoney.Content = value; }
-        #endregion
+
+        public void LCurrentMoney(string value) {
+            lcurentMoney.Content = value;
+        }
+
+        #endregion I record the visual component
 
         #region Event forwarding
+
         private void buttonAddProfit_Click(object sender, RoutedEventArgs e) {
             addContent2.Show();
         }
-
 
         private void ButtonAddSpending_Click(object sender, RoutedEventArgs e) {
             AddContent?.Invoke(this, EventArgs.Empty);
@@ -48,16 +51,14 @@ namespace MoneyManager
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             GetWeather?.Invoke(this, EventArgs.Empty);
             CurrentMoney?.Invoke(this, EventArgs.Empty);
-
         }
 
-        public event EventHandler AddProfit;
         public event EventHandler AddContent;
+
         public event EventHandler GetWeather;
+
         public event EventHandler CurrentMoney;
 
-
-        #endregion
-
+        #endregion Event forwarding
     }
 }
