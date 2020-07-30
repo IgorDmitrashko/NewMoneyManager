@@ -28,7 +28,7 @@
             </Button.Effect>
         </Button>
 
-        <Button x:Name="buttonAddSpending" Content="Расход" Foreground="Black" Margin="0,0,100.6,93" VerticalAlignment="Bottom" Height="47" HorizontalAlignment="Right" Width="123 " Grid.Column="1">
+        <Button x:Name="buttonAddSpending" Content="Расход" Foreground="Black" Margin="0,0,100.6,93" VerticalAlignment="Bottom" Height="47" HorizontalAlignment="Right" Width="123 " Grid.Column="1" >
             <Button.Effect>
                 <DropShadowEffect />
             </Button.Effect>

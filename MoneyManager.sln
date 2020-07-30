@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1View", "1View", "{5C6672E1-BF8F-4613-8B01-05AB6B535B5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2BL", "2BL", "{7506FD7E-CF31-4F52-AE11-533D8F847046}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyManager", "MoneyManager\MoneyManager.csproj", "{6ED870EC-B365-4EBC-8139-76283F6FCBF4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyManager.BL", "MoneyManager.BL\MoneyManager.BL.csproj", "{136906A4-3300-496D-B2C3-C966F5C2121C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherInKyiv", "WeatherInKyiv\WeatherInKyiv.csproj", "{7BB5F084-249F-409F-B68D-D66F3FD59F0C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1View", "1View", "{5C6672E1-BF8F-4613-8B01-05AB6B535B5F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2BL", "2BL", "{7506FD7E-CF31-4F52-AE11-533D8F847046}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -60,5 +60,6 @@ namespace MoneyManager
         public event EventHandler CurrentMoney;
 
         #endregion Event forwarding
+       
     }
 }
